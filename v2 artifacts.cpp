@@ -20,55 +20,55 @@ vector<pair<string, double>> currentSubstats; // substat name, substat value
 
 vector<string> artifactTypeName {"Flower of Life", "Plume of Death", "Sands of Eon", "Goblet of Eonothem", "Circlet of Logos"};
 vector<string> mainstatTypeName {"HP", "ATK", "HP%", "ATK%", "DEF%", "Elemental Mastery", "Energy Recharge%",
-								 "Anemo DMG Bonus%", "Geo DMG Bonus%", "Electro DMG Bonus%", "Dendro DMG Bonus%", "Hydro DMG Bonus%",
-								 "Pyro DMG Bonus%", "Cryo DMG Bonus%", "Physical DMG Bonus%", "CRIT Rate%", "CRIT DMG%", "Healing Bonus%"};
+				 "Anemo DMG Bonus%", "Geo DMG Bonus%", "Electro DMG Bonus%", "Dendro DMG Bonus%", "Hydro DMG Bonus%",
+				 "Pyro DMG Bonus%", "Cryo DMG Bonus%", "Physical DMG Bonus%", "CRIT Rate%", "CRIT DMG%", "Healing Bonus%"};
 vector<double> sandsMainstatWeight {0, 0, 0.2668, 0.2666, 0.2666, 0.1, 0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 vector<double> gobletMainstatWeight {0, 0, 0.1925, 0.1925, 0.19, 0.025, 0, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0, 0, 0};
 vector<double> circletMainstatWeight {0, 0, 0.22, 0.22, 0.22, 0.04, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.1, 0.1, 0.1};
 
 vector<double> substatRolls {298.75, 19.45, 23.15, 5.83, 5.83, 7.29, 23.31, 6.48, 3.89, 7.77};
 vector<pair<string, int>> substatTypePairs {{"HP", 6},  // substat name, substat weight
-											{"ATK", 6},
-											{"DEF", 6},
-											{"HP%", 4},
-											{"ATK%", 4},
-											{"DEF%", 4},
-											{"Elemental Mastery", 4},
-											{"Energy Recharge%", 4},
-											{"CRIT Rate%", 3},
-											{"CRIT DMG%", 3}};
+					    {"ATK", 6},
+					    {"DEF", 6},
+					    {"HP%", 4},
+					    {"ATK%", 4},
+					    {"DEF%", 4},
+					    {"Elemental Mastery", 4},
+					    {"Energy Recharge%", 4},
+					    {"CRIT Rate%", 3},
+					    {"CRIT DMG%", 3}};
 											
 unordered_map<string, double> substatValues = {{"HP", 298.75},  // substat name, substat value
-											   {"ATK", 19.45},
-											   {"DEF", 23.15},
-											   {"HP%", 5.83},
-											   {"ATK%", 5.83},
-											   {"DEF%", 7.29},
-											   {"Elemental Mastery", 23.31},
-											   {"Energy Recharge%", 6.48},
-											   {"CRIT Rate%", 3.89},
-											   {"CRIT DMG%", 7.77}};
+					       {"ATK", 19.45},
+					       {"DEF", 23.15},
+					       {"HP%", 5.83},
+					       {"ATK%", 5.83},
+					       {"DEF%", 7.29},
+					       {"Elemental Mastery", 23.31},
+					       {"Energy Recharge%", 6.48},
+					       {"CRIT Rate%", 3.89},
+					       {"CRIT DMG%", 7.77}};
 
 vector<string> availableSubstats;
 
 vector<vector<double>> mainstatStats {{717, 1530, 2342, 3155, 3967, 4780},
-									  {47, 100, 152, 205, 258, 311},
-									  {7.0, 14.9, 22.8, 30.8, 38.7, 46.6},
-									  {7.0, 14.9, 22.8, 30.8, 38.7, 46.6},
-									  {8.7, 18.6, 28.6, 38.5, 48.4, 58.3},
-									  {28.0, 60, 91, 123, 155, 187},
-									  {7.8, 16.6, 25.4, 34.2, 43.0, 51.8},
-									  {7.0, 14.9, 22.8, 30.8, 38.7, 46.6},
-									  {7.0, 14.9, 22.8, 30.8, 38.7, 46.6},
-									  {7.0, 14.9, 22.8, 30.8, 38.7, 46.6},
-									  {7.0, 14.9, 22.8, 30.8, 38.7, 46.6},
-									  {7.0, 14.9, 22.8, 30.8, 38.7, 46.6},
-									  {7.0, 14.9, 22.8, 30.8, 38.7, 46.6},
-									  {7.0, 14.9, 22.8, 30.8, 38.7, 46.6},
-									  {8.7, 18.6, 28.6, 38.5, 48.4, 58.3},
-									  {4.7, 9.9, 15.2, 20.5, 25.8, 31.1},
-									  {9.3, 19.9, 30.5, 41.0, 51.6, 62.2},
-									  {5.4, 11.5, 17.6, 23.7, 29.8, 35.9}};
+				      {47, 100, 152, 205, 258, 311},
+				      {7.0, 14.9, 22.8, 30.8, 38.7, 46.6},
+				      {7.0, 14.9, 22.8, 30.8, 38.7, 46.6},
+				      {8.7, 18.6, 28.6, 38.5, 48.4, 58.3},
+				      {28.0, 60, 91, 123, 155, 187},
+				      {7.8, 16.6, 25.4, 34.2, 43.0, 51.8},
+				      {7.0, 14.9, 22.8, 30.8, 38.7, 46.6},
+				      {7.0, 14.9, 22.8, 30.8, 38.7, 46.6},
+				      {7.0, 14.9, 22.8, 30.8, 38.7, 46.6},
+				      {7.0, 14.9, 22.8, 30.8, 38.7, 46.6},
+				      {7.0, 14.9, 22.8, 30.8, 38.7, 46.6},
+				      {7.0, 14.9, 22.8, 30.8, 38.7, 46.6},
+				      {7.0, 14.9, 22.8, 30.8, 38.7, 46.6},
+				      {8.7, 18.6, 28.6, 38.5, 48.4, 58.3},
+				      {4.7, 9.9, 15.2, 20.5, 25.8, 31.1},
+				      {9.3, 19.9, 30.5, 41.0, 51.6, 62.2},
+				      {5.4, 11.5, 17.6, 23.7, 29.8, 35.9}};
 
 int totalArtifact = 0;
 int goodArti = 0;
