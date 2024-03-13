@@ -13,7 +13,7 @@ using namespace std;
 int pieceType = rand() % 5; // type of piece, 0 = flower, 1 = feather, 2 = sands, 3 = goblet, 4 = circlet
 int mainstatType = 0; // type of mainstat, 0-1 = flat, 2-4 = %, 5 = em, 6 = er, 7-14 = ele dmg%, 15-16 = crit, 17 = hb
 int pieceLevel = 0;
-int lines = 1; // current substat lines, 0 = 3 lines, 1 = 4 lines;
+int lines = 1; // current substat lines, 0 = 3 lines, 1-4 = 4 lines;
 int r = -1;
 vector<string>::iterator del;
 vector<pair<string, double>> currentSubstats; // substat name, substat value
@@ -230,9 +230,11 @@ void start(vector<string>& availableSubstats){
 	del = find(availableSubstats.begin(), availableSubstats.end(), mainstatTypeName[mainstatType]);
 	if(del != availableSubstats.end()) availableSubstats.erase(del);
 	
-	lines = rand() % 2;
+	lines = rand() % 5;
+	int l = 0;
+	if(lines > 0) l = 1;
 	
-	for(int i = 1; i <= lines + 3; i++){
+	for(int i = 1; i <= l + 3; i++){
 		randomizeSubstat(availableSubstats);
 	}
 }
